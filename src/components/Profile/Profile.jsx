@@ -1,4 +1,4 @@
-import css from "./Profile.module.css"
+import css from "./components/Profile/Profile.module.css"
 const Profile = ({ name, tag, location, image, stats }) => {
   return (
     <div className={css.boxWrapper}>
@@ -13,7 +13,6 @@ const Profile = ({ name, tag, location, image, stats }) => {
         <p className={css.profileTag}>@{tag}</p>
         <p className={css.profileLocation}>{location}</p>
       </div>
-
       <ul className={css.profileStatsList}>
         <li className={css.profileStatsListItem}>
           <span>Followers</span>
