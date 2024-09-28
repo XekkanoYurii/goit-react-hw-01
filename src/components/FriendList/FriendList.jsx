@@ -1,21 +1,23 @@
-import FriendListItem from "./components/FriendListItem/FriendListItem.jsx";
-import css from "./components/FriendList/FriendList.module.css";
+import PropTypes from 'prop-types';
+import FriendListItem from '../FriendListItem/FriendListItem.jsx';
+import css from './FriendList.module.css';
 
 const FriendList = ({ friends }) => {
   return (
-    <div className={css.friendsWrapper}>
-      {friends.map((friend) => {
+    <ul className={css.friendList}>
+      {friends.map(({ avatar, name, isOnline, id }) => {
         return (
-          <FriendListItem
-            avatar={friend.avatar}
-            name={friend.name}
-            isOnline={friend.isOnline}
-            key={friend.id}
-          />
+          <li key={id}>
+            <FriendListItem avatar={avatar} name={name} status={isOnline} />
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
+};
+
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default FriendList;
